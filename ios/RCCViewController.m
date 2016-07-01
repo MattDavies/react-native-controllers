@@ -269,7 +269,7 @@ const NSInteger TRANSPARENT_NAVBAR_TAG = 78264803;
             
             [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
             self.navigationController.navigationBar.shadowImage = [UIImage new];
-            UIVisualEffectView *blur = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
+            UIVisualEffectView *blur = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleDark]];
             CGRect statusBarFrame = [[UIApplication sharedApplication] statusBarFrame];
             blur.frame = CGRectMake(0, -1 * statusBarFrame.size.height, self.navigationController.navigationBar.frame.size.width, self.navigationController.navigationBar.frame.size.height + statusBarFrame.size.height);
             blur.userInteractionEnabled = NO;
