@@ -422,6 +422,13 @@ const NSInteger TRANSPARENT_NAVBAR_TAG = 78264803;
         self._hidesBottomBarWhenPushed = NO;
     }
     
+    NSString *screenBackgroundColor = self.navigatorStyle[@"screenBackgroundColor"];
+    if (screenBackgroundColor)
+    {
+        UIColor *color = screenBackgroundColor != (id)[NSNull null] ? [RCTConvert UIColor:screenBackgroundColor] : nil;
+        self.view.backgroundColor = color;
+    }
+
     NSNumber *statusBarHideWithNavBar = self.navigatorStyle[@"statusBarHideWithNavBar"];
     BOOL statusBarHideWithNavBarBool = statusBarHideWithNavBar ? [statusBarHideWithNavBar boolValue] : NO;
     if (statusBarHideWithNavBarBool)
@@ -474,14 +481,7 @@ const NSInteger TRANSPARENT_NAVBAR_TAG = 78264803;
 
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
-    if (self._statusBarTextColorSchemeLight)
-    {
-        return UIStatusBarStyleLightContent;
-    }
-    else
-    {
-        return UIStatusBarStyleDefault;
-    }
+    return UIStatusBarStyleLightContent;
 }
 
 - (UIImageView *)findHairlineImageViewUnder:(UIView *)view {
